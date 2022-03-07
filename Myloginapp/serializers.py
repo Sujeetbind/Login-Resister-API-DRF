@@ -33,12 +33,15 @@ class LoginUserSerializer(serializers.Serializer):
 
 
 class ApplicationIdSerializers(serializers.ModelSerializer):
-     #Full_name =serializers.CharField(max_length=100),
-     #Facebook_APP_ID = serializers.CharField(max_length=200),
-     #LinkedIn_APP_ID = serializers.CharField(max_length=200),
-     #Twitter_APP_ID = serializers.CharField(max_length=200),
-     #Intagram_APP_ID = serializers.CharField(max_length=200),
+     Full_name =serializers.CharField(max_length=100),
+     Facebook_APP_ID = serializers.CharField(max_length=200),
+     LinkedIn_APP_ID = serializers.CharField(max_length=200),
+     Twitter_APP_ID = serializers.CharField(max_length=200),
+     Intagram_APP_ID = serializers.CharField(max_length=200),
 
      class Meta:
         model = ApplicationId
-        fields = ('__all__')
+        fields = ('Full_name','Facebook_APP_ID','LinkedIn_APP_ID','Twitter_APP_ID','Intagram_APP_ID')
+
+        def create(self, validated_data):
+           return ApplicationId.objects.create(**validated_data)
