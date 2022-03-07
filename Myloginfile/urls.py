@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from Myloginapp.views import RegistrationAPI,LoginAPI
+from Myloginapp.views import RegistrationAPI,LoginAPI,AppIdViews
 #from knox import views as knox_views
 from django.urls import path
 
@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', RegistrationAPI.as_view()),
      path('login/', LoginAPI.as_view()),
+     path('App_id/', AppIdViews.as_view())
 ]

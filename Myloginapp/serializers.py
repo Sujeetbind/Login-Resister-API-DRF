@@ -1,6 +1,6 @@
 import email
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser,ApplicationId
 from django.contrib.auth import authenticate
 
 class CreateUserSerializer(serializers.ModelSerializer):
@@ -30,3 +30,15 @@ class LoginUserSerializer(serializers.Serializer):
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Invalid Details.")
+
+
+class ApplicationIdSerializers(serializers.ModelSerializer):
+     #Full_name =serializers.CharField(max_length=100),
+     #Facebook_APP_ID = serializers.CharField(max_length=200),
+     #LinkedIn_APP_ID = serializers.CharField(max_length=200),
+     #Twitter_APP_ID = serializers.CharField(max_length=200),
+     #Intagram_APP_ID = serializers.CharField(max_length=200),
+
+     class Meta:
+        model = ApplicationId
+        fields = ('__all__')
